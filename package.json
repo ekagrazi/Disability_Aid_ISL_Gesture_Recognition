@@ -1,0 +1,55 @@
+{
+  "name": "islr2",
+  "version": "1.0.0",
+  "main": "electron/main.js",
+  "scripts": {
+    "start": "electron .",
+    "dev": "concurrently -n FE,EL -c green,yellow \"npm run dev:frontend\" \"wait-on http://localhost:3000 && electron .\"",
+    "dev:frontend": "cd frontend && npm run dev",
+    "dev:backend": "cd backend && python main.py",
+    "build:backend": "cd backend && pyinstaller --onefile --name backend --add-data \"slr_model.pth;.\" main.py",
+    "build:frontend": "cd frontend && npm run build",
+    "build:electron": "electron-builder --win",
+    "build": "npm run build:backend && npm run build:frontend && npm run build:electron",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "description": "",
+  "devDependencies": {
+    "concurrently": "^9.2.1",
+    "electron": "^41.0.3",
+    "electron-builder": "^26.8.1",
+    "wait-on": "^9.0.4"
+  },
+  "build": {
+    "appId": "com.islr.app",
+    "productName": "ISL Recognition",
+    "directories": {
+      "output": "release"
+    },
+    "files": [
+      "electron/**/*",
+      "frontend/dist/**/*"
+    ],
+    "extraResources": [
+      {
+        "from": "backend/dist/backend.exe",
+        "to": "backend/backend.exe"
+      },
+      {
+        "from": "backend/slr_model.pth",
+        "to": "backend/slr_model.pth"
+      }
+    ],
+    "win": {
+      "target": "nsis"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true
+    }
+  }
+}
