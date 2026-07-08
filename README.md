@@ -4,7 +4,7 @@ A real-time Indian Sign Language (ISL) gesture recognition system utilizing Medi
 
 ---
 
-## 🚀 Key Features
+## Key Features
 
 * **Real-time Inference**: Capture hand movements via webcam and translate them instantly with extremely low latency.
 * **Dual Interface Support**:
@@ -18,7 +18,7 @@ A real-time Indian Sign Language (ISL) gesture recognition system utilizing Medi
 
 ---
 
-## 📁 Repository Structure
+## Repository Structure
 
 ```tree
 ├── backend/                  # FastAPI WebSocket server & PyTorch model wrapper
@@ -37,7 +37,7 @@ A real-time Indian Sign Language (ISL) gesture recognition system utilizing Medi
 
 ---
 
-## 🛠️ Prerequisites
+## Prerequisites
 
 Make sure you have the following installed on your machine:
 * [Node.js](https://nodejs.org/) (v18 or higher recommended)
@@ -46,7 +46,7 @@ Make sure you have the following installed on your machine:
 
 ---
 
-## 📦 Installation & Setup
+## Installation & Setup
 
 ### 1. Clone the Repository
 ```bash
@@ -84,7 +84,7 @@ cd ..
 
 ---
 
-## 🏃 Running the Application
+## Running the Application
 
 ### Option A: Running the Desktop Application (Recommended)
 This launches the FastAPI backend, the React frontend, and the Electron desktop frame concurrently.
@@ -122,7 +122,7 @@ If you prefer running the web interface in a standard web browser:
 
 ### Option C: Python CLI Tools (Dataset Recording & Direct Inference)
 
-#### 🎥 Recording Custom Sign Gesture Dataset
+#### Recording Custom Sign Gesture Dataset
 Collect sequences of coordinates for new words to train the model:
 1. Run the recording script:
    ```bash
@@ -133,14 +133,14 @@ Collect sequences of coordinates for new words to train the model:
 4. Press the **Spacebar** to toggle recording on/off for each sample sequence (capture 30 samples).
 5. Data is structured and saved under the `dataset/` directory.
 
-#### 🏋️ Training the Model
+#### Training the Model
 Train the neural network on your custom dataset:
 ```bash
 python train_model.py
 ```
 This trains the model over 50 epochs and saves the weights and classes list to `slr_model.pth`.
 
-#### 👁️ Local Live Inference
+#### Local Live Inference
 Test the trained model weights immediately via terminal without starting the web servers:
 ```bash
 python live_inference.py
@@ -149,7 +149,7 @@ python live_inference.py
 
 ---
 
-## 🧠 Technical Pipeline
+## Technical Pipeline
 
 ```mermaid
 graph TD
@@ -164,4 +164,4 @@ graph TD
     I --> J[Live UI Display Translation Output]
 ```
 ---
-*Created with love to bridge communication gaps.*
+*Created to bridge communication gaps.*
