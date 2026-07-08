@@ -163,5 +163,5 @@ graph TD
     H --> I[Softmax Classification & Confidence Check]
     I --> J[Live UI Display Translation Output]
 ```
-
-
+---
+*Created with love to bridge communication gaps.*
